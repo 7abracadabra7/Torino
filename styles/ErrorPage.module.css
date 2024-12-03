@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+.errorBox {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.error{
+    font-weight: 600;
+    font-size: 36px;
+}
+
+.returnBtn {
+  background-color: var(--light-green);
+  border-radius: 16px;
+  padding:16px 45px;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--green-color);
+}

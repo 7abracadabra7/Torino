@@ -1,0 +1,14 @@
+.image {
+  width: 100%;
+}
+
+.torino {
+  font-weight: 600;
+  font-size: 28px;
+  text-align: center;
+  margin: 17px auto 28px auto;
+}
+
+.torino span {
+  color: var(--green-color);
+}
