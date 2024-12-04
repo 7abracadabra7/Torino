@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap");
 
 :root {
+  --white-color:#FFFFFF;
   --green-color: #28a745;
   --light-green: #D8FFE1;
-
+  --blue-color: #009ECA;
   --font-color: #282828;
 
 }
@@ -26,6 +27,10 @@ a {
 button,
 input {
   font-family: inherit;
+}
+
+button {
+  cursor: pointer;
 }
 
 p , span , h1, h2 , h3{

@@ -1,6 +1,5 @@
 import Header from "../../components/molecules/Header";
 import Footer from "../../components/molecules/Footer";
-
 import "./globals.css";
 
 export const metadata = {

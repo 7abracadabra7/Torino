@@ -1,8 +1,11 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Header.module.css";
 
 const Header = () => {
+
+
   return (
     <div className={styles.headerContainer}>
       <Image src="/images/Torino.png" width={146} height={44} alt="logo" />

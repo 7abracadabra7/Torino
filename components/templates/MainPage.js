@@ -1,7 +1,13 @@
 import Image from "next/image";
 import styles from "./MainPage.module.css";
+import Tours from "../organisms/Tours";
 
-const MainPage = () => {
+const MainPage = async () => {
+  const response = await fetch(`http://localhost:6500/tour`, {
+    cache: "no-cache",
+  });
+  const tours = await response.json();
+  tours && console.log(tours);
   return (
     <div>
       <Image
@@ -11,9 +17,12 @@ const MainPage = () => {
         height={350}
         alt="cover page"
       />
-      <h1 className={styles.torino}>
-        <span>تورینو </span>برگزار کننده بهترین تور های داخلی و خارجی
-      </h1>
+      <div className={styles.container}>
+        <h1 className={styles.torino}>
+          <span>تورینو </span>برگزار کننده بهترین تور های داخلی و خارجی
+        </h1>
+        <Tours tours={tours} />
+      </div>
     </div>
   );
 };
