@@ -1,0 +1,66 @@
+.container {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid var(--border-color);
+  margin: 0 auto 100px auto;
+  width: 1188px;
+  height: 250px;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.right {
+  width: 75%;
+  height: 100%;
+  display: flex;
+  background-color: var(--green-color);
+}
+
+.right h1 {
+  color: var(--white-color);
+  font-size: 48px;
+  font-weight: 800;
+}
+
+.torino {
+  color: var(--dark-green);
+}
+
+.right {
+  width: 870px;
+  font-size: 32px;
+  color: var(--white-color);
+  position: relative;
+}
+
+.image {
+  position: absolute;
+  bottom: 0;
+  left: 25px;
+}
+
+.info {
+  margin: 36px 57px 83px auto;
+}
+
+.info p {
+  color: var(--white-color);
+}
+
+.left {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.button {
+  width: 175px;
+  height: 40px;
+  border-radius: 9px;
+  background-color: var(--dark-green);
+  color: var(--white-color);
+  font-weight: 500;
+}

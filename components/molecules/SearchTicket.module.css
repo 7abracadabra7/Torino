@@ -1,0 +1,46 @@
+.container {
+  width: 880px;
+  height: 71px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 0 auto 84px auto;
+
+}
+
+.dateContainer {
+  position: relative;
+}
+
+.dateBtn {
+  width: 170px;
+  border: none;
+  background-color: inherit;
+font-size: 16px;
+  color: var(--black-color);
+  text-align: right;
+}
+
+.button {
+  width: 180px;
+  height: 51px;
+  border-radius: 16px;
+  background-color: var(--green-color);
+  color: var(--white-color);
+  font-size: 20px;
+  border: none;
+}
+
+.calendar {
+  position: absolute;
+  top: 60px;
+  width: 300px;
+  /* height: 220px; */
+    background-color: white; /* پس‌زمینه سفید */
+    border-radius: 8px; /* گوشه‌های گرد */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* سایه برای زیبایی */
+    padding: 10px; /* فاصله داخلی */
+    z-index: 1000;
+  }

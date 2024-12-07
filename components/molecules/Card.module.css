@@ -6,8 +6,8 @@
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
   margin-bottom: 30px;
   border-radius: 10px;
-  border:1px solid #d9d9d9;
-  /* position: relative; */
+  border:1px solid var(--border-color);
+
 }
 
 .container img {
@@ -51,7 +51,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top:1px solid #d9d9d9;
+  border-top:1px solid var(--border-color);
   padding: 10px;
 
 }
@@ -63,6 +63,4 @@
   padding: 1px 20px;
   color: var(--white-color);
 }
-/* .reserveBox button:hover {
-  background-color: darken(var(--green-color), 10%);
-} */
+

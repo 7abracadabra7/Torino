@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap");
 
 :root {
-  --white-color:#FFFFFF;
+  --white-color: #ffffff;
+  --border-color: #d9d9d9;
   --green-color: #28a745;
-  --light-green: #D8FFE1;
-  --blue-color: #009ECA;
+  --light-green: #d8ffe1;
+  --blue-color: #009eca;
   --font-color: #282828;
-
+  --dark-green: #10411b;
 }
 
 * {
@@ -33,6 +34,10 @@ button {
   cursor: pointer;
 }
 
-p , span , h1, h2 , h3{
+p,
+span,
+h1,
+h2,
+h3 {
   color: var(--font-color);
 }
