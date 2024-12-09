@@ -1,15 +1,18 @@
 "use client";
 import React, { useState } from "react";
 import Select from "react-select";
-import Calendar from "react-calendar"; // وارد کردن تقویم
-import "react-calendar/dist/Calendar.css"; // استایل‌های تقویم
-import styles from "./SearchTicket.module.css"; // استایل‌های CSS
+// import Calendar from "react-calendar";
+// import "react-calendar/dist/Calendar.css";
+import styles from "./SearchTicket.module.css";
+import { Calendar, CalendarProvider } from "zaman";
 
 const SearchTicket = ({ destinationCities, originCities }) => {
   const [selectedDate, setSelectedDate] = useState(new Date()); // تاریخ انتخاب شده
   const [originCity, setOriginCity] = useState(null);
   const [destinationCity, setDestinationCity] = useState(null);
   const [showCalendar, setShowCalendar] = useState(false); // وضعیت نمایش تقویم
+  const [calendarValue, setCalendarValue] = useState(new Date());
+
 
   const handleOriginChange = (selectedOption) => {
     setOriginCity(selectedOption);
@@ -44,7 +47,7 @@ const SearchTicket = ({ destinationCities, originCities }) => {
           }),
           placeholder: (provided) => ({
             ...provided,
-            color: 'black', 
+            color: "black",
           }),
         }}
         options={originCities}
@@ -62,11 +65,11 @@ const SearchTicket = ({ destinationCities, originCities }) => {
             width: "200px",
             height: "50px",
             margin: "10px",
-            color:"black"
+            color: "black",
           }),
           placeholder: (provided) => ({
             ...provided,
-            color: 'black', 
+            color: "black",
           }),
         }}
         options={destinationCities}
@@ -75,7 +78,6 @@ const SearchTicket = ({ destinationCities, originCities }) => {
         components={{ DropdownIndicator: () => null }}
       />
 
-
       <div
         className={styles.dateContainer}
         style={{ display: "flex", justifyContent: "center", margin: "10px" }}
@@ -83,27 +85,29 @@ const SearchTicket = ({ destinationCities, originCities }) => {
         <button
           className={styles.dateBtn}
           onClick={() => setShowCalendar(!showCalendar)}
-          >
+        >
           تاریخ
         </button>
         {showCalendar && (
           <div className={styles.calendar}>
-            {" "}
-            {/* اضافه کردن کلاس CSS */}
-            <Calendar
-              onChange={handleDateChange} // تابعی که هنگام تغییر تاریخ فراخوانی می‌شود
-              value={selectedDate} // تاریخ انتخاب شده
-              style={{ margin: "10px" }} // استایل
-            />
+            {/* <Calendar
+              onChange={handleDateChange}
+              value={selectedDate} 
+              style={{ margin: "10px" }} 
+            /> */}
+            <CalendarProvider locale="fa"
+                direction="rtl">
+              <Calendar
+                defaultValue={calendarValue}
+                onChange={(e) => setCalendarValue(new Date(e.value))}
+        
+              />
+            </CalendarProvider>
           </div>
         )}
       </div>
 
-      <button
-        className={styles.button}
-        onClick={handleSearch}
-    
-      >
+      <button className={styles.button} onClick={handleSearch}>
         جستجو
       </button>
 

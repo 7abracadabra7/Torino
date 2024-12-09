@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  width: 1182px;
+  justify-content: space-between;
+  align-items: center;
+}
+.right {
+  width: 50%;
+}
+
+.title {
+  display: flex;
+  gap: 15px;
+}
+
+.title h2 {
+  font-size: 40px;
+  font-weight: 800;
+}
+.questionMark {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #28a745 0%, #10411b 100%);
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.questionMark span {
+  color: var(--white-color);
+  font-size: 38px;
+  font-weight: 900;
+}
+
+.torino {
+  color: var(--green-color);
+}
+
+.subTile{
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.text {
+  width: 517px;
+  font-size: 20px;
+  text-align: justify;
+  line-height: 44px;
+}

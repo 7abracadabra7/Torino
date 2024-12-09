@@ -15,12 +15,10 @@ const dateConverter = (startDateStr, endDateStr) => {
     "بهمن",
     "اسفند",
   ];
-  // const jalaliDate = moment(startDateStr);
-  // const jalaliDate = JalaaliDate.fromGregorian(startDateStr);
+   
   const start = new Date(startDateStr);
   const end = new Date(endDateStr);
-  // const formattedDate = start.toLocaleDateString("fa-IR");
-  // console.log("startDate", formattedDate);
+
   const day = start.getDate();
   const month = monthArray[start.getMonth()];
   const year = start.getFullYear();

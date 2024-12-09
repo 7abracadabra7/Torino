@@ -3,9 +3,10 @@ import styles from "./MainPage.module.css";
 import Tours from "../organisms/Tours";
 import SearchTicket from "../molecules/SearchTicket";
 import CallPurchasing from "../molecules/CallPurchasing";
+import WhyTorino from "../molecules/WhyTorino";
 const MainPage = async () => {
   const response = await fetch(`http://localhost:6500/tour`, {
-    cache: "force-cache",
+    cache: "no-cache",
   });
   const tours = await response.json();
 
@@ -54,11 +55,16 @@ const MainPage = async () => {
         <h1 className={styles.torino}>
           <span>تورینو </span>برگزار کننده بهترین تور های داخلی و خارجی
         </h1>
-      
-<SearchTicket destinationCities={destinationCities}  originCities={originCities}/>
- 
+
+        <SearchTicket
+          destinationCities={destinationCities}
+          originCities={originCities}
+        />
+  
+
         <Tours tours={tours} />
         <CallPurchasing />
+        <WhyTorino />
       </div>
     </div>
   );

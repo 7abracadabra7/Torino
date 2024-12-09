@@ -1,18 +1,18 @@
 import styles from "./Card.module.css";
 import dateConverter from "../../utils/dateConvertor";
 import { convertToPersianNumber } from "../../utils/engToPersianNumber";
+import Link from "next/link";
 
 function Card(props) {
-  const { title, startDate, endDate, price, image, options } = props;
+  const { id,title, startDate, endDate, price, image, options } = props;
   const shamsiDate = dateConverter(startDate, endDate);
   const day = shamsiDate[2];
   const month = shamsiDate[1];
   const difference = shamsiDate[3];
   console.log(shamsiDate, day, difference);
   const aboutTour = `${month} ماه - ${difference}روزه - پرواز - ${options[1]} `;
-  const fPrice = convertToPersianNumber(price)
+  const fPrice = convertToPersianNumber(price);
   const finalPrice = fPrice.toLocaleString();
-  console.log("ffffffffffffffffffff", finalPrice);
 
   return (
     <div className={styles.container}>
@@ -23,7 +23,7 @@ function Card(props) {
           <div>{`${aboutTour.slice(0, 35)} ...`}</div>
         </div>
         <div className={styles.reserveBox}>
-          <button>رزرو</button>
+          <Link href={`/${id}`}>رزرو</Link>
           <p className={styles.price}>{`${finalPrice} تومان`}</p>
         </div>
       </div>
