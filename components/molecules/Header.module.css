@@ -35,3 +35,7 @@
   border-radius: 8px;
   gap: 4px;
 }
+
+.phoneNumber {
+  color: var(--green-color);
+}

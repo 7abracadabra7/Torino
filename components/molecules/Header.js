@@ -2,9 +2,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Header.module.css";
+import { useModalContext } from "../../providers/contextProvider";
+import { convertToPersianNumber } from "../../utils/engToPersianNumber";
 
 const Header = () => {
-
+  const { setIsOpen, user, setUser } = useModalContext();
+  const phoneNumber = convertToPersianNumber(user);
 
   return (
     <div className={styles.headerContainer}>
@@ -16,14 +19,18 @@ const Header = () => {
           <Link href="/about-us">درباره ما </Link>
           <Link href="/contact-us">تماس با ما </Link>
         </ul>
-        <button className={styles.registerBtn}>
+        <button className={styles.registerBtn} onClick={() => setIsOpen(true)}>
           <Image
             src="/images/profile.png"
             width={24}
             height={24}
             alt="profile image"
           />
-          <p>ورود | ثبت نام</p>
+          {!!user ? (
+            <p className={styles.phoneNumber}>{phoneNumber}</p>
+          ) : (
+            <p>ورود | ثبت نام</p>
+          )}
         </button>
       </div>
     </div>

@@ -4,8 +4,9 @@ import Tours from "../organisms/Tours";
 import SearchTicket from "../molecules/SearchTicket";
 import CallPurchasing from "../molecules/CallPurchasing";
 import WhyTorino from "../molecules/WhyTorino";
+import AuthForm from "../organisms/AuthForm";
 const MainPage = async () => {
-  const response = await fetch(`http://localhost:6500/tour`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}tour`, {
     cache: "no-cache",
   });
   const tours = await response.json();
@@ -39,9 +40,7 @@ const MainPage = async () => {
     })
     .filter((city) => city !== null);
 
-  if (destinationCities.length && originCities.length) {
-    console.log("o", originCities, "d", destinationCities);
-  }
+
   return (
     <div>
       <Image
@@ -60,11 +59,11 @@ const MainPage = async () => {
           destinationCities={destinationCities}
           originCities={originCities}
         />
-  
 
         <Tours tours={tours} />
         <CallPurchasing />
         <WhyTorino />
+        <AuthForm /> 
       </div>
     </div>
   );

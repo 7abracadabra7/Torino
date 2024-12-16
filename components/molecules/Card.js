@@ -1,6 +1,6 @@
 import styles from "./Card.module.css";
 import dateConverter from "../../utils/dateConvertor";
-import { convertToPersianNumber } from "../../utils/engToPersianNumber";
+import { formatNumberWithCommas } from "../../utils/engToPersianNumber";
 import Link from "next/link";
 
 function Card(props) {
@@ -11,7 +11,7 @@ function Card(props) {
   const difference = shamsiDate[3];
   console.log(shamsiDate, day, difference);
   const aboutTour = `${month} ماه - ${difference}روزه - پرواز - ${options[1]} `;
-  const fPrice = convertToPersianNumber(price);
+  const fPrice = formatNumberWithCommas(price);
   const finalPrice = fPrice.toLocaleString();
 
   return (

@@ -1,14 +1,19 @@
 
-function formatNumberWithCommas(number) {
-  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+export function formatNumberWithCommas(number) {
+  const formattedNumber = number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const persianFormattedNumber = convertToPersianNumber(formattedNumber);
+  return persianFormattedNumber;
 }
 
   export function convertToPersianNumber(number) {
     const persianDigits = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];
-    const formattedNumber = formatNumberWithCommas(number*100);
-    const persianFormattedNumber = formattedNumber.replace(/\d/g, (digit) => persianDigits[digit]);
-
-    return persianFormattedNumber;
+ 
+    if (number == null) {
+      return ""; 
+    }
+    const numberString = number.toString();
+    return numberString.replace(/[0-9]/g, (digit) => persianDigits[digit]);
+ 
 
   }
   

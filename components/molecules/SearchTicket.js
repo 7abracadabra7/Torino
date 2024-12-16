@@ -13,7 +13,6 @@ const SearchTicket = ({ destinationCities, originCities }) => {
   const [showCalendar, setShowCalendar] = useState(false); // وضعیت نمایش تقویم
   const [calendarValue, setCalendarValue] = useState(new Date());
 
-
   const handleOriginChange = (selectedOption) => {
     setOriginCity(selectedOption);
   };
@@ -90,17 +89,17 @@ const SearchTicket = ({ destinationCities, originCities }) => {
         </button>
         {showCalendar && (
           <div className={styles.calendar}>
-            {/* <Calendar
-              onChange={handleDateChange}
-              value={selectedDate} 
-              style={{ margin: "10px" }} 
-            /> */}
-            <CalendarProvider locale="fa"
-                direction="rtl">
+            <CalendarProvider
+              style={{
+                width: "300px",
+                height: "220px",
+              }}
+              locale="fa"
+              direction="rtl"
+            >
               <Calendar
                 defaultValue={calendarValue}
                 onChange={(e) => setCalendarValue(new Date(e.value))}
-        
               />
             </CalendarProvider>
           </div>
