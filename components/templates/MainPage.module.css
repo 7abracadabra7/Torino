@@ -1,5 +1,7 @@
 .container{
   padding: 0 129px;
+  background-color: var(--white-color);
+  margin-top: 0;
 }
 
 .image {

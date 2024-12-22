@@ -7,20 +7,21 @@
   justify-content: space-evenly;
   align-items: center;
   margin: 0 auto 84px auto;
-
 }
 
 .dateContainer {
   position: relative;
+  margin: 0px;
 }
 
 .dateBtn {
-  width: 170px;
+  width: 150px;
   border: none;
   background-color: inherit;
-font-size: 16px;
+  font-size: 16px;
   color: var(--black-color);
   text-align: right;
+  /* margin-left: 10px; */
 }
 
 .button {
@@ -37,15 +38,14 @@ font-size: 16px;
   position: absolute;
   top: 60px;
   width: 300px;
-  /* height: 220px; */
-    background-color: white; /* پس‌زمینه سفید */
-    border-radius: 8px; /* گوشه‌های گرد */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* سایه برای زیبایی */
-    padding: 10px; /* فاصله داخلی */
-    z-index: 1000;
-  }
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+}
 
-  .calendarContent{
-    width: 300px;
-    height: 220px;
-  }
+.calendarContent {
+  width: 300px;
+  height: 220px;
+}

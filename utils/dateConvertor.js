@@ -1,6 +1,6 @@
-import moment from "moment-jalaali";
+import {convertToPersianNumber} from "./engToPersianNumber";
 
-const dateConverter = (startDateStr, endDateStr) => {
+const dateConverter = (dateStr) => {
   const monthArray = [
     "فروردین",
     "اردیبهشت",
@@ -15,18 +15,24 @@ const dateConverter = (startDateStr, endDateStr) => {
     "بهمن",
     "اسفند",
   ];
-   
-  const start = new Date(startDateStr);
-  const end = new Date(endDateStr);
 
-  const day = start.getDate();
-  const month = monthArray[start.getMonth()];
-  const year = start.getFullYear();
-  const diffInMs = end - start;
+  const tourDate = new Date(dateStr);
 
-  const differenceInDays = Math.ceil(diffInMs / (1000 * 60 * 60 * 24));
-  const shamsiDate = [year, month, day, differenceInDays];
+  const day = convertToPersianNumber(tourDate.getDate());
+  const month = convertToPersianNumber(monthArray[tourDate.getMonth()]);
+  const year = convertToPersianNumber(tourDate.getFullYear());
+  const shamsiDate = [year, month, day];
   return shamsiDate;
+};
+
+export const tourDays = (endDate, startDate) => {
+  const second = new Date(endDate);
+  const first = new Date(startDate);
+  console.log("ss", second, first);
+
+  const diffInMs = second - first;
+  const differenceInDays = Math.ceil(diffInMs / (1000 * 60 * 60 * 24));
+  return differenceInDays;
 };
 
 export default dateConverter;

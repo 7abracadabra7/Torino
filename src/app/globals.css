@@ -3,11 +3,12 @@
 :root {
   --white-color: #ffffff;
   --border-color: #d9d9d9;
-  --green-color: #28a745;
+  --gray-color: #7D7D7D;
   --light-green: #d8ffe1;
+  --green-color: #28a745;
+  --dark-green: #10411b;
   --blue-color: #009eca;
   --font-color: #282828;
-  --dark-green: #10411b;
 }
 
 * {
@@ -18,6 +19,7 @@
 
 body {
   font-family: "Vazirmatn", sans-serif;
+  
 }
 
 a {

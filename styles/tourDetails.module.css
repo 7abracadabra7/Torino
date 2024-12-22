@@ -1,32 +1,141 @@
 .container {
-    padding: 30px 20px 30px 25px;
+  margin: 0px;
+  background-color: #f3f3f3;
+  padding: 36px 0 99px 0;
+}
+
+.content {
+  padding: 30px 20px 0px 25px;
   display: flex;
   flex-direction: column;
-    width: 1188px;
-    height: 430px;
+  width: 1188px;
+  height: 420px;
+  margin: 0px auto auto auto;
+  background-color: var(--white-color);
+  border-radius: 10px;
+  border: 1px solid #00000033;
 }
 
 .topBox {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.left{
-display: flex;
-flex-direction: column;
-height:270px ;
-width: 770px;
+.topInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
 }
 
-.bottom{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.topInfo div {
+  display: flex;
+  gap: 8px;
+  align-items: center;
 }
 
-.bottomBox{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
+.topInfo span {
+  color: var(--gray-color);
+}
+
+.top h3 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.top p {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.cityImage {
+  border-radius: 12px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  height: 270px;
+  width: 770px;
+  padding: 0px 24px 29px 24px;
+  justify-content: space-between;
+}
+
+.price {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--blue-color);
+  margin-left: 10px;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.bottom h3 {
+  display: flex;
+  align-items: center;
+}
+
+.toman {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray-color);
+}
+
+.bottomBox {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+
+.bottomInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid var(--border-color);
+  padding-left: 44px;
+  padding-right: 44px;
+  gap: 4px;
+}
+
+.bottomInfo:first-child {
+  border-right: none;
+  padding-right: 3px;
+}
+
+.bottomTitle {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.itemTitle {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.item {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.reserveBtn {
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 204px;
+  height: 56px;
+  line-height: 28px;
+  background-color: var(--green-color);
+  color: var(--white-color);
+  padding: 8px;
+  border-radius: 10px;
 }

@@ -1,11 +1,11 @@
-.footerContainer {
+ .footerContainer {
   padding: 31px 126px 0 126px;
   border-top: 1px solid #00000033;
   border-bottom: 1px solid #00000033;
   margin-bottom: 12px;
 }
 
-.top {
+/*.top {
   padding: 0 26px 32px 26px;
   border-bottom: 1px solid #00000033;
   display: flex;
@@ -34,7 +34,7 @@
 .footerText {
   font-size: 16px;
   font-weight: 300;
-}
+} */
 
 .bottom {
   padding-top: 20px;

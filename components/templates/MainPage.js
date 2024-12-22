@@ -4,7 +4,10 @@ import Tours from "../organisms/Tours";
 import SearchTicket from "../molecules/SearchTicket";
 import CallPurchasing from "../molecules/CallPurchasing";
 import WhyTorino from "../molecules/WhyTorino";
+import TorinoServices from "../molecules/TorinoServices";
 import AuthForm from "../organisms/AuthForm";
+import { translateCityName } from "../../utils/translateCityName";
+
 const MainPage = async () => {
   const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}tour`, {
     cache: "no-cache",
@@ -20,7 +23,7 @@ const MainPage = async () => {
         originSet.add(tour.origin.id);
         return {
           value: tour.origin.id,
-          label: tour.origin.name,
+          label: translateCityName(tour.origin.name),
         };
       }
       return null;
@@ -33,16 +36,15 @@ const MainPage = async () => {
         destinationSet.add(tour.destination.id);
         return {
           value: tour.destination.id,
-          label: tour.destination.name,
+          label: translateCityName(tour.destination.name),
         };
       }
       return null;
     })
     .filter((city) => city !== null);
 
-
   return (
-    <div>
+    <div style={{ backgroundColor: "white" }}>
       <Image
         className={styles.image}
         src="/images/cover.png"
@@ -63,7 +65,8 @@ const MainPage = async () => {
         <Tours tours={tours} />
         <CallPurchasing />
         <WhyTorino />
-        <AuthForm /> 
+        <TorinoServices />
+        <AuthForm />
       </div>
     </div>
   );

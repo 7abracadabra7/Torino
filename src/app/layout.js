@@ -16,9 +16,9 @@ const Layout = ({ children }) => {
       <body>
         <TanstackQueryProvider>
           <ContextProvider>
-          <Toaster />
+            <Toaster />
             <Header />
-            {children}
+            <div style={{ backgroundColor: "#f3f3f3" }}>{children}</div>
             <Footer />
           </ContextProvider>
         </TanstackQueryProvider>

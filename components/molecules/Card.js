@@ -23,7 +23,7 @@ function Card(props) {
           <div>{`${aboutTour.slice(0, 35)} ...`}</div>
         </div>
         <div className={styles.reserveBox}>
-          <Link href={`/${id}`}>رزرو</Link>
+          <Link className={styles.reserveBtn} href={`/${id}`}>رزرو</Link>
           <p className={styles.price}>{`${finalPrice} تومان`}</p>
         </div>
       </div>

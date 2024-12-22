@@ -5,7 +5,6 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 1px 4px 0px #00000029;
-
 }
 
 .headerElements {
@@ -32,10 +31,75 @@
   border: 2px solid var(--green-color);
   color: var(--green-color);
   background-color: inherit;
-  border-radius: 8px;
+  border-radius: 11px;
   gap: 4px;
 }
 
 .phoneNumber {
+  border: none;
+  display: flex;
+  padding: 8px 15px;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: inherit;
+  outline: none;
+}
+.phoneNumber:active {
+  border: none;
+  outline: none;
+}
+
+.phoneNumber p {
   color: var(--green-color);
+}
+
+.profileModal {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 246px;
+  top: 70px;
+  left: 90px;
+  background-color: var(--white-color);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+
+.modalItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  padding: 16px 0 16px 0;
+}
+
+.profileModal li:first-child {
+  background-color: #f4f4f4;
+  padding: 8px 12px;
+}
+.modalLinks {
+  padding: 0px 12px;
+}
+
+.modalItem:last-child {
+  border-top: 1px solid #f4f4f4;
+}
+
+.modalItem:last-child p {
+  color: #d40000;
+}
+
+.modalImage {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #d9d9d9;
+}
+.image {
+  position: absolute;
+  top: 3px;
+  left: 3px;
 }
