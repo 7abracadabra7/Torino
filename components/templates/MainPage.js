@@ -65,9 +65,9 @@ const MainPage = async () => {
         <Tours tours={tours} />
         <CallPurchasing />
         <WhyTorino />
-        <TorinoServices />
         <AuthForm />
       </div>
+        <TorinoServices />
     </div>
   );
 };

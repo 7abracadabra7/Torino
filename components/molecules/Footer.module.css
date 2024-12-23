@@ -1,8 +1,9 @@
  .footerContainer {
-  padding: 31px 126px 0 126px;
-  border-top: 1px solid #00000033;
-  border-bottom: 1px solid #00000033;
+  /* padding: 31px 126px 0 126px; */
+   border-bottom: 1px solid #00000033;
   margin-bottom: 12px;
+
+
 }
 
 /*.top {
@@ -37,10 +38,13 @@
 } */
 
 .bottom {
-  padding-top: 20px;
+  padding-top: 31px;
   padding-bottom: 28px;
   display: flex;
   justify-content: space-between;
+  margin: 0px 126px 0 126px;
+  border-top: 1px solid #00000033;
+
 }
 
 .right {
