@@ -19,4 +19,37 @@ const useCheckOtp = () => {
   return useMutation({ mutationFn });
 };
 
-export { useSendOtp, useCheckOtp };
+const useOrder = () => {
+  const mutationFn = async (data) => {
+    const response = await api.post("order", data);
+    return response;
+  };
+  return useMutation({
+    mutationFn,
+
+    onSuccess: (response) => {
+      console.log(response.data.message);
+    },
+    onError: (error) => {
+      console.error("Error creating post:", error);
+    },
+  });
+};
+
+const useAddToBasket = () => {
+  const mutationFn = async (id) => {
+    const response = await api.put(`basket/${id}`);
+    return response;
+  };
+  return useMutation({
+    mutationFn,
+    onSuccess: (response) => {
+      console.log(response.data.message);
+    },
+    onError: (error) => {
+      console.error("Error in add tour to basket:", error);
+    },
+  });
+};
+
+export { useSendOtp, useCheckOtp, useOrder, useAddToBasket };

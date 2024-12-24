@@ -1,7 +1,7 @@
+"use client";
 import Image from "next/image";
 import styles from "./TourDetails.module.css";
 import dateConverter from "../../utils/dateConvertor";
-import Link from "next/link";
 import { translateVehicleName } from "../../utils/translateVehicleName";
 import { translateCityName } from "../../utils/translateCityName";
 import { tourDays } from "../../utils/dateConvertor";
@@ -9,8 +9,10 @@ import {
   convertToPersianNumber,
   formatNumberWithCommas,
 } from "../../utils/engToPersianNumber";
+import { useAddToBasket } from "../../services/mutations";
+import { useRouter } from "next/router";
 
-const TourDetails = ({ result }) => {
+const TourDetails = ({ result, router }) => {
   const {
     id,
     title,
@@ -23,6 +25,17 @@ const TourDetails = ({ result }) => {
     origin,
     image,
   } = result;
+
+  const { mutate } = useAddToBasket();
+
+  const addToBasket = () => {
+    mutate(id, {
+      onSuccess: (response) => {
+        console.log(response);
+        router.push(`/${id}/purchase-tour`);
+      },
+    });
+  };
 
   const start = dateConverter(startDate);
   const end = dateConverter(endDate);
@@ -88,9 +101,12 @@ const TourDetails = ({ result }) => {
                 </span>
                 <p className={styles.toman}> تومان</p>
               </h3>
-              <Link className={styles.reserveBtn} href={`/${id}/purchase-tour`}>
+              {/* <Link className={styles.reserveBtn} href={`/${id}/purchase-tour`}>
                 رزرو و خرید
-              </Link>
+              </Link> */}
+              <button className={styles.reserveBtn} onClick={addToBasket}>
+                رزرو و خرید
+              </button>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import { formatNumberWithCommas } from "../../utils/engToPersianNumber";
 import styles from "./TourInfo.module.css";
 import { useFetchTour } from "../../services/queries";
 
-const TourInfo = ({ tourId }) => {
+const TourInfo = ({ tourId, onSubmit }) => {
   if (!tourId) {
     return <div>در حال بارگذاری اطلاعات تور...</div>;
   }
@@ -21,7 +21,6 @@ const TourInfo = ({ tourId }) => {
   if (!data) {
     return <div>داده‌ای برای نمایش وجود ندارد.</div>;
   }
-  console.log(data);
 
   //   const tourData = await fetch(
   //     `${process.env.NEXT_PUBLIC_BASE_URL}tour/${tourId}`
@@ -46,7 +45,9 @@ const TourInfo = ({ tourId }) => {
           <p className={styles.toman}> تومان</p>
         </h3>
       </div>
-      <button className={styles.button}>ثبت و خرید نهایی</button>
+      <button onClick={onSubmit} className={styles.button}>
+        ثبت و خرید نهایی
+      </button>
     </div>
   );
 };

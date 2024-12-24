@@ -1,4 +1,4 @@
-import {convertToPersianNumber} from "./engToPersianNumber";
+import { convertToPersianNumber } from "./engToPersianNumber";
 
 const dateConverter = (dateStr) => {
   const monthArray = [
@@ -28,7 +28,6 @@ const dateConverter = (dateStr) => {
 export const tourDays = (endDate, startDate) => {
   const second = new Date(endDate);
   const first = new Date(startDate);
-  console.log("ss", second, first);
 
   const diffInMs = second - first;
   const differenceInDays = Math.ceil(diffInMs / (1000 * 60 * 60 * 24));

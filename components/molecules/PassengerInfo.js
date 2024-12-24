@@ -6,11 +6,12 @@ import { useState } from "react";
 import Select from "react-select";
 
 import styles from "./PassengerInfo.module.css";
-import { Controller, useForm } from "react-hook-form";
+import { Controller } from "react-hook-form";
 
-const PassengerInfo = () => {
+const PassengerInfo = ({ register, control, setValue }) => {
   const [calendarValue, setCalendarValue] = useState();
   const [showCalendar, setShowCalendar] = useState(false);
+  const [gender, setGender] = useState();
 
   const genders = [
     { value: "man", label: "مرد" },
@@ -18,12 +19,12 @@ const PassengerInfo = () => {
     { value: "other", label: "سایر" },
   ];
 
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors },
-  } = useForm();
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   control,
+  //   formState: { errors },
+  // } = useForm();
 
   const handleGenderChange = (selectedOption) => {
     console.log("Selected option:", selectedOption);
@@ -47,20 +48,17 @@ const PassengerInfo = () => {
     }),
   };
 
-  const submitHandler = (data) => {
-    console.log("first");
-  };
   return (
     <div className={styles.passengerInfo}>
       <div className={styles.titleBox}>
         <Image src="/icons/profile2.png" width={20} height={20} alt="icon" />
         <h2 className={styles.title}>مشخصات مسافر</h2>
       </div>
-      <form onSubmit={handleSubmit(submitHandler)} className={styles.form}>
+      <form className={styles.form}>
         <input
           className={styles.input}
           type="text"
-          {...register("name", { required: "ورود نام الزامی است" })}
+          {...register("fullName", { required: "ورود نام الزامی است" })}
           placeholder="نام و نام خانوادگی"
         />
         <input
@@ -71,10 +69,10 @@ const PassengerInfo = () => {
           })}
           placeholder="کدملی"
         />
-        <Controller
+        {/* <Controller
           control={control}
           name="date"
-          render={({ field }) => (
+          render={({ field: { onChange } }) => (
             <div className={styles.controller}>
               <input
                 className={styles.input}
@@ -87,12 +85,12 @@ const PassengerInfo = () => {
               {showCalendar && (
                 <div className={styles.calendarContainer}>
                   <CalendarProvider
-                    {...field}
                     locale="fa"
                     direction="rtl"
                     defaultValue={new Date()}
                   >
                     <Calendar
+                      {...field}
                       defaultValue={calendarValue}
                       onChange={(e) => {
                         setCalendarValue(new Date(e.value));
@@ -104,19 +102,50 @@ const PassengerInfo = () => {
               )}
             </div>
           )}
+        /> */}
+
+        <input
+          className={styles.input}
+          type="text"
+          {...register("birthDate", { required: "تاریخ تولد را وارد کنید" })}
+          value={calendarValue?.toLocaleString("fa-IR") || ""}
+          readOnly
+          onClick={() => setShowCalendar((prev) => !prev)}
+          placeholder="تاریخ تولد"
         />
+        {showCalendar && (
+          <div className={styles.calendarContainer}>
+            <CalendarProvider
+              locale="fa"
+              direction="rtl"
+              defaultValue={new Date()}
+            >
+              <Calendar
+                defaultValue={calendarValue}
+                onChange={(e) => {
+                  setCalendarValue(new Date(e.value));
+                  setValue("birthDate", new Date(e.value).toISOString());
+                  setShowCalendar(false);
+                }}
+                onClick={(e) => e.preventDefault()}
+              />
+            </CalendarProvider>
+          </div>
+        )}
 
         <Controller
           control={control}
-          name="date"
-          render={({ field }) => (
+          name="gender"
+          render={({ field: { onChange, value } }) => (
             <Select
               styles={customStyles}
-              {...field}
               options={genders}
-              onChange={handleGenderChange}
-              placeholder=" جنسیت"
+              onChange={(selectedOption) => {
+                onChange(selectedOption);
+              }}
+              placeholder="جنسیت"
               components={{ IndicatorSeparator: null }}
+              value={value}
             />
           )}
         />
