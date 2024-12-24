@@ -22,7 +22,6 @@ const TourDetails = ({ result }) => {
     price,
     origin,
     image,
-    options,
   } = result;
 
   const start = dateConverter(startDate);
@@ -48,7 +47,7 @@ const TourDetails = ({ result }) => {
           />
           <div className={styles.left}>
             <div className={styles.top}>
-              <h3>تور {title}</h3>
+              <h3> {title}</h3>
               <p>{`${convertToPersianNumber(
                 difference
               )} روز و ${convertToPersianNumber(difference - 1)} شب`}</p>
@@ -89,7 +88,7 @@ const TourDetails = ({ result }) => {
                 </span>
                 <p className={styles.toman}> تومان</p>
               </h3>
-              <Link className={styles.reserveBtn} href="/">
+              <Link className={styles.reserveBtn} href={`/${id}/purchase-tour`}>
                 رزرو و خرید
               </Link>
             </div>
@@ -167,7 +166,7 @@ const TourDetails = ({ result }) => {
               <span className={styles.itemTitle}> بیمه</span>
             </div>
             <p className={styles.item}>
-              بیمه {insurance ? <span>دارد</span> : <span>ندارد</span>}{" "}
+              بیمه {insurance ? <span>دارد</span> : <span>ندارد</span>}
             </p>
           </div>
         </div>

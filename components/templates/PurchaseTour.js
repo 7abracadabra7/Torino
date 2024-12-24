@@ -1,12 +1,16 @@
 import styles from "./PurchaseTour.module.css";
+import PassengerInfo from "../molecules/PassengerInfo";
+import TourInfo from "../molecules/TourInfo";
 
-
-import React from 'react'
-
-const PurchaseTour = () => {
+const PurchaseTour = ({ tourId }) => {
   return (
-    <div>PurchaseTour</div>
-  )
-}
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <PassengerInfo />
+        <TourInfo tourId={tourId} />
+      </div>
+    </div>
+  );
+};
 
-export default PurchaseTour
+export default PurchaseTour;

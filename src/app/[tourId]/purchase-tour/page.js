@@ -1,12 +1,13 @@
-import React from 'react'
-import PurchaseTour from '../../../../components/templates/PurchaseTour'
+import React from "react";
+import PurchaseTour from "../../../../components/templates/PurchaseTour";
 
-const page = () => {
+const page = ({ params }) => {
+  console.log("params", params);
   return (
     <div>
-        <PurchaseTour />
+      <PurchaseTour tourId={params.tourId} />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;

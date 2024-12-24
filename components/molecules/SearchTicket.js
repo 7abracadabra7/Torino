@@ -18,13 +18,6 @@ const SearchTicket = ({ destinationCities, originCities }) => {
     calendarValue
   );
 
-  // if (isLoading) {
-  //   return <span>Loading...</span>
-  // }
-
-  // if (isError) {
-  //   return <span>Error: {error.message}</span>
-  // }
 
   console.log("data:", data);
 

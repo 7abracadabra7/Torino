@@ -1,0 +1,52 @@
+.passengerInfo {
+  width: 865px;
+  height: 228px;
+  border-radius: 10px;
+  border: 1px solid #00000033;
+  background-color: var(--white-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 23px;
+}
+
+.titleBox {
+  display: flex;
+  flex-direction: row;
+  margin-right: 23px;
+  align-items: center;
+}
+.title {
+  margin-right: 5px;
+}
+
+
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.controller {
+  position: relative;
+}
+
+.calendarContainer {
+  position: absolute;
+  z-index: 10;
+  margin-top: 5px;
+}
+
+.input {
+  width: 255px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid var(--gray-color);
+  padding-right: 15px;
+}
+
+.input::placeholder {
+  color: var(--gray-color);
+}

@@ -1,0 +1,12 @@
+.container {
+  padding: 36px 0;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: space-between;
+  width: calc(865px + 307px + 16px);
+  height: calc(100vh - 78px - 306px);
+}
+

@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import api from "../config/api";
 
-export const useSearchTour = (originId, destinationId, startDate) => {
-  console.log("first");
+const useSearchTour = (originId, destinationId, startDate) => {
   const queryKey = ["tours", { originId, destinationId, startDate }];
   const fetchTours = async (originId, destinationId, startDate) => {
     const params = new URLSearchParams();
@@ -20,5 +20,26 @@ export const useSearchTour = (originId, destinationId, startDate) => {
   return useQuery({
     queryKey,
     queryFn: () => fetchTours(originId, destinationId, startDate),
+    enabled: false,
   });
 };
+
+const useFetchTour = (tourId) => {
+  const queryKey = ["tour", tourId];
+
+  const fetchTour = async (tourId) => {
+    const result = await api.get(`tour/${tourId}`);
+    return result.data;
+  };
+
+  return useQuery({
+    queryKey,
+    queryFn: () => fetchTour(tourId),
+    enabled: !!tourId,
+    onError: (error) => {
+      console.log(error);
+    },
+  });
+};
+
+export { useSearchTour, useFetchTour };

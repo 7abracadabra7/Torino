@@ -1,0 +1,61 @@
+.tourInfo {
+  width: 307px;
+  height: 228px;
+  border-radius: 10px;
+  background-color: var(--white-color);
+  padding: 16px 12px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top span {
+    color: var(--gray-color);
+  font-size: 16px;
+
+}
+
+.border {
+  transform: translateX(12px);
+}
+
+.bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom h3 {
+  display: flex;
+  align-items: center;
+}
+
+.toman {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--gray-color);
+}
+
+.price {
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--blue-color);
+  margin-left: 10px;
+}
+
+.button {
+  width: 283px;
+  height: 56px;
+  background-color: var(--green-color);
+  color: var(--white-color);
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+}

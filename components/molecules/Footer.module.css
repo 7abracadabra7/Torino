@@ -1,9 +1,7 @@
- .footerContainer {
+.footerContainer {
   /* padding: 31px 126px 0 126px; */
-   border-bottom: 1px solid #00000033;
+  border-bottom: 1px solid #00000033;
   margin-bottom: 12px;
-
-
 }
 
 /*.top {
@@ -44,7 +42,6 @@
   justify-content: space-between;
   margin: 0px 126px 0 126px;
   border-top: 1px solid #00000033;
-
 }
 
 .right {
@@ -85,4 +82,6 @@
   padding-bottom: 12px;
   font-size: 15px;
   text-align: center;
+  height: 51px;
+  max-height: 51px;
 }
