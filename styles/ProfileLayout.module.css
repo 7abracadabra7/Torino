@@ -1,0 +1,54 @@
+.profileLayout {
+  padding: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  background-color: var(--white-color);
+}
+
+.sidebar {
+  width: 284px;
+  height: 178px;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  overflow: hidden;
+  grid-column: span 1;
+}
+
+.active,
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  height: 59px;
+}
+
+.sidebarItem:last-child {
+  margin-top: 10px;
+}
+.sidebar div {
+  padding: 16px;
+  width: 100%;
+  display: inline-block;
+  margin: 0 12px;
+}
+
+.sidebar li:nth-child(1) div,
+.sidebar li:nth-child(2) div {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.sidebar li:last-child div {
+  border-bottom: none;
+}
+
+.active {
+  background-color: var(--light-green);
+  color: var(--green-color);
+}
+
+.sidebarItem {
+}
+
+.mainContent {
+  grid-column: span 3;
+}

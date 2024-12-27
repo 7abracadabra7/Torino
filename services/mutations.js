@@ -1,4 +1,4 @@
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 const { default: api } = require("../config/api");
 
 const useSendOtp = () => {
@@ -19,21 +19,18 @@ const useCheckOtp = () => {
   return useMutation({ mutationFn });
 };
 
-const useOrder = () => {
-  const mutationFn = async (data) => {
-    const response = await api.post("order", data);
-    return response;
-  };
-  return useMutation({
-    mutationFn,
 
-    onSuccess: (response) => {
-      console.log(response.data.message);
-    },
-    onError: (error) => {
-      console.error("Error creating post:", error);
-    },
-  });
+
+const useCheckout = () => {
+  const queryClient = useQueryClient();
+
+  const mutationFn = (data) => api.post("order", data);
+
+  const onSuccess = () => {
+    queryClient.invalidateQueries({ queryKey: ["user-tours"] });
+  };
+
+  return useMutation({ mutationFn, onSuccess });
 };
 
 const useAddToBasket = () => {
@@ -52,4 +49,4 @@ const useAddToBasket = () => {
   });
 };
 
-export { useSendOtp, useCheckOtp, useOrder, useAddToBasket };
+export { useSendOtp, useCheckOtp, useCheckout, useAddToBasket };

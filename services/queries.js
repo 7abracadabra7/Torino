@@ -42,4 +42,35 @@ const useFetchTour = (tourId) => {
   });
 };
 
-export { useSearchTour, useFetchTour };
+const useGetUserData = () => {
+  const queryFn = () => api.get("user/profile");
+  const queryKey = ["user-data"];
+
+  return useQuery({
+    queryFn,
+    queryKey,
+   
+  });
+};
+
+const useGetBasket = () => {
+  const queryFn = () => api.get("basket");
+  const queryKey = ["user-basket"];
+
+  return useQuery({ queryFn, queryKey });
+};
+
+const useGetUserTours = () => {
+  const queryFn = () => api.get("user/tours");
+  const queryKey = ["user-tours"];
+
+  return useQuery({ queryFn, queryKey });
+};
+
+export {
+  useSearchTour,
+  useFetchTour,
+  useGetUserData,
+  useGetBasket,
+  useGetUserTours,
+};

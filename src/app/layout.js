@@ -4,6 +4,7 @@ import "./globals.css";
 import TanstackQueryProvider from "../../providers/TanstackQueryProvider";
 import ContextProvider from "../../providers/contextProvider";
 import { Toaster } from "react-hot-toast";
+import AuthForm from "../../components/organisms/AuthForm";
 
 export const metadata = {
   title: "Torino website",
@@ -16,10 +17,11 @@ const Layout = ({ children }) => {
       <body>
         <TanstackQueryProvider>
           <ContextProvider>
-            <Toaster />
-            <Header />
-            <div style={{ backgroundColor: "#f3f3f3" }}>{children}</div>
-            <Footer />
+          <Toaster />
+          <Header />
+          <main style={{ backgroundColor: "#f3f3f3" }}>{children}</main>
+          <AuthForm />
+          <Footer />
           </ContextProvider>
         </TanstackQueryProvider>
       </body>

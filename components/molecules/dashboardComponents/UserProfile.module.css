@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.subContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+  border: 1px solid #00000033;
+  border-radius: 10px;
+  background-color: var(--white-color);
+  width: 872px;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 28px;
+}
+
+.fields {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  row-gap: 28px;
+  column-gap: 260px;
+}
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--gray-color);
+}
+
+.value {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--font-color);
+}
+
+/* .leftSide {
+ 
+} */
+
+.edit {
+  color: var(--blue-color);
+  width: 130px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.edit p {
+  color: var(--blue-color);
+
+  font-size: 14px;
+  font-weight: 400;
+}

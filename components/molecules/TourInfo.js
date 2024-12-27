@@ -4,28 +4,20 @@ import Image from "next/image";
 import { tourDays } from "../../utils/dateConvertor";
 import { formatNumberWithCommas } from "../../utils/engToPersianNumber";
 import styles from "./TourInfo.module.css";
-import { useFetchTour } from "../../services/queries";
 
-const TourInfo = ({ tourId, onSubmit }) => {
-  if (!tourId) {
-    return <div>در حال بارگذاری اطلاعات تور...</div>;
-  }
-
-  const { data, isError, isLoading } = useFetchTour(tourId);
+const TourInfo = ({ onSubmit, data, isError, isLoading }) => {
   if (isError) {
     return <div>error</div>;
   }
   if (isLoading) {
-    return <div>loading...</div>;
+    return <div>در حال بارگذاری اطلاعات تور...</div>;
   }
   if (!data) {
     return <div>داده‌ای برای نمایش وجود ندارد.</div>;
   }
 
-  //   const tourData = await fetch(
-  //     `${process.env.NEXT_PUBLIC_BASE_URL}tour/${tourId}`
-  //   );
-  //   const result = await tourData.json();
+  console.log("first", data);
+
   const { title, startDate, endDate, price } = data;
   const difference = tourDays(endDate, startDate);
 

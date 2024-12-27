@@ -2,10 +2,11 @@
 
 :root {
   --white-color: #ffffff;
-  --border-color: #d9d9d9;
+  --border-color: #00000033;
   --gray-color: #7d7d7d;
   --light-green: #d8ffe1;
   --green-color: #28a745;
+  --light-green: #cbebd3;
   --dark-green: #10411b;
   --blue-color: #009eca;
   --font-color: #282828;
@@ -20,7 +21,7 @@
 body {
   font-family: "Vazirmatn", sans-serif;
   height: 100vh;
-justify-content: space-between;
+  justify-content: space-between;
   display: flex;
   flex-direction: column;
 }

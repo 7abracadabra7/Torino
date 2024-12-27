@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetUserData } from "@/core/services/queries";
+import { useGetUserData } from "../services/queries";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
@@ -12,12 +12,7 @@ function AuthProvider({ children }) {
     if (!isPending && !data?.data) router.push("/");
   }, [isPending]);
 
-  if (isPending)
-    return (
-      <p>
-        Loading...
-      </p>
-    );
+  if (isPending) return <p>Loading...</p>;
 
   return children;
 }

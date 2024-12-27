@@ -126,16 +126,4 @@
   font-weight: 500;
 }
 
-.reserveBtn {
-  display: inline-block;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 204px;
-  height: 56px;
-  line-height: 28px;
-  background-color: var(--green-color);
-  color: var(--white-color);
-  padding: 8px;
-  border-radius: 10px;
-}
+

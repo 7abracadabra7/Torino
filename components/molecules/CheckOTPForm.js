@@ -12,7 +12,7 @@ function CheckOTPForm({ mobile, setStep, setIsOpen }) {
   const [code, setCode] = useState("");
 
   const { isPending, mutate } = useCheckOtp();
-  const { setUser } = useModalContext();
+  const { setUser, handleLogin } = useModalContext();
 
   const checkOtpHandler = (event) => {
     event.preventDefault();
@@ -26,7 +26,8 @@ function CheckOTPForm({ mobile, setStep, setIsOpen }) {
           setCookie("accessToken", data?.data?.accessToken, 30);
           setCookie("refreshToken", data?.data?.refreshToken, 365);
           setIsOpen(false);
-          setUser(mobile);
+          // setUser(mobile);
+          handleLogin(mobile);
           setStep(1);
         },
         onError: (error) => {

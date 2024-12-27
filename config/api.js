@@ -1,4 +1,3 @@
-
 import axios from "axios";
 
 import { getCookie, setCookie } from "../utils/cookie";
@@ -29,7 +28,8 @@ api.interceptors.response.use(
   },
   async (error) => {
     const orginialRequest = error.config;
-    if (error.response.status === 401 && !orginialRequest._retry) {
+
+    if (error.response?.status === 401 && !orginialRequest._retry) {
       orginialRequest._retry = true;
 
       const res = await getNewTokens();
@@ -43,7 +43,14 @@ api.interceptors.response.use(
         setCookie("refreshToken", "", 0);
       }
     }
-    return Promise.reject(error.response.data);
+    if (
+      error.response?.status === 403 &&
+      error.response.message == "Invalid token"
+    ) {
+      setCookie("accessToken", "", 0);
+      setCookie("refreshToken", "", 0);
+    }
+    return Promise.reject(error.response?.data);
   }
 );
 

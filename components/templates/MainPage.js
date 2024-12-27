@@ -8,11 +8,8 @@ import TorinoServices from "../molecules/TorinoServices";
 import AuthForm from "../organisms/AuthForm";
 import { translateCityName } from "../../utils/translateCityName";
 
-const MainPage = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}tour`, {
-    cache: "no-cache",
-  });
-  const tours = await response.json();
+const MainPage = async ({ tours }) => {
+
 
   const originSet = new Set();
   const destinationSet = new Set();
@@ -65,9 +62,9 @@ const MainPage = async () => {
         <Tours tours={tours} />
         <CallPurchasing />
         <WhyTorino />
-        <AuthForm />
+
       </div>
-        <TorinoServices />
+      <TorinoServices />
     </div>
   );
 };
