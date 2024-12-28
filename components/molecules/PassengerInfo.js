@@ -19,16 +19,11 @@ const PassengerInfo = ({ register, control, setValue }) => {
     { value: "other", label: "سایر" },
   ];
 
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   control,
-  //   formState: { errors },
-  // } = useForm();
+ 
 
-  const handleGenderChange = (selectedOption) => {
-    console.log("Selected option:", selectedOption);
-  };
+  // const handleGenderChange = (selectedOption) => {
+  //   console.log("Selected option:", selectedOption);
+  // };
 
   const customStyles = {
     control: (provided) => ({
@@ -119,6 +114,7 @@ const PassengerInfo = ({ register, control, setValue }) => {
               locale="fa"
               direction="rtl"
               defaultValue={new Date()}
+              onClick={(e) => e.preventDefault()}
             >
               <Calendar
                 defaultValue={calendarValue}
@@ -127,7 +123,7 @@ const PassengerInfo = ({ register, control, setValue }) => {
                   setValue("birthDate", new Date(e.value).toISOString());
                   setShowCalendar(false);
                 }}
-                onClick={(e) => e.preventDefault()}
+                
               />
             </CalendarProvider>
           </div>

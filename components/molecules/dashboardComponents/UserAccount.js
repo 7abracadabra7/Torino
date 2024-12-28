@@ -2,30 +2,80 @@ import Image from "next/image";
 import styles from "./UserProfile.module.css";
 import { convertToPersianNumber } from "../../../utils/engToPersianNumber";
 
-const UserAccount = ({ userData }) => {
+const UserAccount = ({
+  userData,
+  isEditing,
+  setIsEditing,
+  register,
+  onSubmit,
+}) => {
   return (
     <div className={styles.subContainer}>
-      <div className={styles.rightSide}>
-        <h2 className={styles.header}>اطلاعات حساب کاربری</h2>
-        <div className={styles.fields}>
-          <div className={styles.field}>
-            <span className={styles.label}>شماره موبایل </span>
-            <span className={styles.value}>
-              {convertToPersianNumber(userData?.mobile)}
-            </span>
-          </div>
-          <div className={styles.field}>
-            <span className={styles.label}>ایمیل</span>
-            <span className={styles.value}>{userData?.email || "-"}</span>
+      <div className={styles.topSide}>
+        <div className={styles.rightSide}>
+          <h2 className={styles.header}>اطلاعات حساب کاربری</h2>
+          <div className={styles.fields}>
+            <div className={styles.field}>
+              {isEditing.index == 1 && !userData.mobile ? (
+                <input
+                  className={styles.input}
+                  type="text"
+                  {...register("mobile")}
+                  placeholder="شماره موبایل"
+                />
+              ) : (
+                <div className={styles.valueBox}>
+                  <span className={styles.label}>شماره موبایل</span>
+                  <span className={styles.value}>
+                    {convertToPersianNumber(userData?.mobile)}
+                  </span>
+                </div>
+              )}
+            </div>
+            <div className={styles.field}>
+              {isEditing.index == 1 && !userData.email ? (
+                <input
+                  className={styles.input}
+                  type="text"
+                  {...register("email")}
+                  placeholder=" ایمیل"
+                />
+              ) : (
+                <div className={styles.valueBox}>
+                  <span className={styles.label}>ایمیل </span>
+
+                  <span className={styles.value}>
+                    {convertToPersianNumber(userData?.email) || "-"}
+                  </span>
+                </div>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-      <div className={styles.leftSide}>
-        <div className={styles.edit}>
-          <Image src="/icons/edit.png" width={16} height={16} alt="edit icon" />
-          <p>افزودن</p>
+        <div className={styles.leftSide}>
+          {isEditing.index != 1 && (
+            <div className={styles.edit}>
+              <Image
+                src="/icons/edit.png"
+                width={20}
+                height={20}
+                alt="edit icon"
+              />
+              <p onClick={() => setIsEditing({ index: 1 })}>افزودن </p>
+            </div>
+          )}
         </div>
       </div>
+      {isEditing.index == 1 && (
+        <div className={styles.buttons}>
+          <button onClick={onSubmit} className={styles.button}>
+            تایید
+          </button>
+          <button onClick={() => setIsEditing(false)} className={styles.button}>
+            انصراف
+          </button>
+        </div>
+      )}
     </div>
   );
 };
