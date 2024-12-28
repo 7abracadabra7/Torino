@@ -13,16 +13,27 @@
   position: relative;
   margin: 0px;
 }
+.calendar {
+  position: absolute;
+  top: 420px;
+  left: 130px;
+  /* width: 300px; */
+  /* background-color: white; */
+  /* border-radius: 8px; */
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+  /* padding: 10px; */
+  /* z-index: 1000; */
+}
 
-.dateBtn {
+/* .dateBtn {
   width: 150px;
   border: none;
   background-color: inherit;
   font-size: 16px;
   color: var(--black-color);
   text-align: right;
-  /* margin-left: 10px; */
-}
+
+} */
 
 .button {
   width: 180px;
@@ -32,20 +43,22 @@
   color: var(--white-color);
   font-size: 20px;
   border: none;
+  margin-left: 5px;
 }
 
-.calendar {
-  position: absolute;
-  top: 60px;
-  width: 300px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  z-index: 1000;
+
+
+
+
+.input {
+  width: 120px;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+
 }
 
-.calendarContent {
-  width: 300px;
-  height: 220px;
+.input::placeholder {
+  color: black;
 }

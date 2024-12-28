@@ -1,4 +1,5 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { setCookie } from "../utils/cookie";
 const { default: api } = require("../config/api");
 
 const useSendOtp = () => {
@@ -24,7 +25,9 @@ const useCheckout = () => {
 
   const mutationFn = (data) => api.post("order", data);
 
-  const onSuccess = () => {
+  const onSuccess = (data) => {
+    setCookie("accessToken", data?.data?.accessToken, 30);
+    setCookie("refreshToken", data?.data?.refreshToken, 360);
     queryClient.invalidateQueries({ queryKey: ["user-tours"] });
   };
 
@@ -49,7 +52,7 @@ const useAddToBasket = () => {
 const useAddProfile = (formData) => {
   const queryClient = useQueryClient();
   const mutationFn = async (formData) => {
-    const response = await api.put("user/profile" , formData);
+    const response = await api.put("user/profile", formData);
     return response;
   };
   return useMutation({

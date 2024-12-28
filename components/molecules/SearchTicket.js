@@ -1,47 +1,47 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
-import styles from "./SearchTicket.module.css";
-import { Calendar, CalendarProvider } from "zaman";
+import { DateToIso, flattenObject } from "../../utils/helper";
+import { DatePicker } from "zaman";
 import Image from "next/image";
 import { useSearchTour } from "../../services/queries";
+import { useRouter } from "next/navigation";
+import useQuery from "../../utils/query";
+import { Controller, useForm } from "react-hook-form";
+import QueryString from "qs";
+import styles from "./SearchTicket.module.css";
+import { resetToMidnight } from "../../utils/resetToMidnight";
 
 const SearchTicket = ({ destinationCities, originCities }) => {
-  const [originCity, setOriginCity] = useState(null);
-  const [destinationCity, setDestinationCity] = useState(null);
-  const [showCalendar, setShowCalendar] = useState(false);
-  const [calendarValue, setCalendarValue] = useState(new Date());
+  const [query, setQuery] = useState("");
 
-  const { data } = useSearchTour(
-    originCity?.value,
-    destinationCity?.value,
-    calendarValue
-  );
+  const router = useRouter();
+  const { getQuery } = useQuery();
 
+  const { data, isPending, refetch } = useSearchTour(query);
+
+  const { register, handleSubmit, control, reset } = useForm();
+
+  useEffect(() => {
+    console.log("hi", originCities);
+
+    const originId = getQuery("originId");
+    const destinationId = getQuery("destinationId");
+    if (originId && destinationId) reset({ originId, destinationId });
+    console.log({ originId, destinationId });
+  }, []);
 
   console.log("data:", data);
 
-  const handleOriginChange = (selectedOption) => {
-    setOriginCity(selectedOption);
-  };
+  const onSubmit = (form) => {
+    console.log("first", form);
 
-  const handleDestinationChange = (selectedOption) => {
-    setDestinationCity(selectedOption);
-  };
-
-  const handleSearch = () => {
-    console.log("Origin:", originCity);
-    console.log("Destination:", destinationCity);
-    // console.log("Selected Date:", calendarValue.toISOString());
-    const selectedDate = new Date(calendarValue);
-    selectedDate.setHours(0, 0, 0, 0);
-
-    const formattedDate = selectedDate.toISOString();
-    setCalendarValue(formattedDate);
+    const query = QueryString.stringify(flattenObject(form));
+    router.push(`/?${query}`);
   };
 
   return (
-    <div className={styles.container}>
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.container}>
       <div style={{ display: "flex", alignItems: "center" }}>
         <Image
           src="/icons/location.png"
@@ -49,26 +49,34 @@ const SearchTicket = ({ destinationCities, originCities }) => {
           height={24}
           alt="profile image"
         />
-        <Select
-          styles={{
-            control: (provided) => ({
-              ...provided,
-              border: "none",
-              boxShadow: "none",
-              width: "170px",
-              height: "50px",
-              cursor: "pointer",
-            }),
-            placeholder: (provided) => ({
-              ...provided,
-              color: "black",
-            }),
-          }}
-          options={originCities}
-          onChange={handleOriginChange}
-          // onFocus={() => setShowCalendar(false)}
-          placeholder="مبدا"
-          components={{ DropdownIndicator: () => null }}
+        <Controller
+          control={control}
+          name="originId"
+          render={({ field }) => (
+            <Select
+              {...field}
+              styles={{
+                control: (provided) => ({
+                  ...provided,
+                  border: "none",
+                  boxShadow: "none",
+                  width: "170px",
+                  height: "50px",
+                  cursor: "pointer",
+                }),
+                placeholder: (provided) => ({
+                  ...provided,
+                  color: "black",
+                }),
+              }}
+              options={originCities}
+              placeholder="مبدا"
+              components={{ DropdownIndicator: () => null }}
+              onChange={(selectedOption) =>
+                field.onChange(selectedOption ? selectedOption.value : null)
+              }
+            />
+          )}
         />
       </div>
 
@@ -79,34 +87,40 @@ const SearchTicket = ({ destinationCities, originCities }) => {
           height={24}
           alt="profile image"
         />
-        <Select
-          styles={{
-            control: (provided) => ({
-              ...provided,
-              border: "none",
-              boxShadow: "none",
-              width: "170px",
-              height: "50px",
-              color: "black",
-              cursor: "pointer",
-            }),
-            placeholder: (provided) => ({
-              ...provided,
-              color: "black",
-            }),
-          }}
-          options={destinationCities}
-          onChange={handleDestinationChange}
-          placeholder="مقصد"
-          components={{ DropdownIndicator: () => null }}
-          // onFocus={() => setShowCalendar(false)}
+        <Controller
+          control={control}
+          name="destinationId"
+          render={({ field }) => (
+            <Select
+              {...field}
+              styles={{
+                control: (provided) => ({
+                  ...provided,
+                  border: "none",
+                  boxShadow: "none",
+                  width: "170px",
+                  height: "50px",
+                  color: "black",
+                  cursor: "pointer",
+                }),
+                placeholder: (provided) => ({
+                  ...provided,
+                  color: "black",
+                }),
+              }}
+              options={destinationCities}
+              placeholder="مقصد"
+              components={{ DropdownIndicator: () => null }}
+              onChange={(selectedOption) =>
+                field.onChange(selectedOption ? selectedOption.value : null)
+              }
+            />
+          )}
         />
       </div>
-
       <div
         className={styles.dateContainer}
-        style={{ display: "flex", justifyContent: "center" }}
-        onClick={() => setShowCalendar(!showCalendar)}
+        style={{ display: "flex", alignItems: "center" }}
       >
         <Image
           src="/icons/cal.png"
@@ -115,35 +129,34 @@ const SearchTicket = ({ destinationCities, originCities }) => {
           alt="profile image"
           style={{ marginLeft: "10px", cursor: "pointer" }}
         />
-        <button className={styles.dateBtn}>تاریخ</button>
-        {showCalendar && (
-          <div className={styles.calendar}>
-            <CalendarProvider
-              style={{
-                width: "300px",
-                height: "220px",
+        <Controller
+          control={control}
+          name="date"
+          render={({ field: { onChange } }) => (
+            <DatePicker
+              round="x2"
+              accentColor="#28A745"
+              onChange={(e) =>
+                onChange({
+                  startDate: resetToMidnight(DateToIso(e.from)),
+                  endDate: resetToMidnight(DateToIso(e.to)),
+                })
+              }
+              range
+              inputClass={`${styles.input}`}
+              inputAttributes={{
+                placeholder: "تاریخ",
               }}
-              locale="fa"
-              direction="rtl"
-            >
-              <Calendar
-                style={{
-                  width: "300px",
-                  height: "220px",
-                }}
-                defaultValue={calendarValue}
-                onChange={(e) => setCalendarValue(new Date(e.value))}
-                onClick={(event) => event.stopPropagation()}
-              />
-            </CalendarProvider>
-          </div>
-        )}
+              className={`${styles.calendar}`}
+            />
+          )}
+        />
       </div>
-
-      <button className={styles.button} onClick={handleSearch}>
+      {/* <input type="submit" /> */}
+      <button type="submit" className={styles.button}>
         جستجو
       </button>
-    </div>
+    </form>
   );
 };
 
