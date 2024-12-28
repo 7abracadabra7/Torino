@@ -8,7 +8,7 @@ const BankAccount = ({
   register,
   onSubmit,
 }) => {
-  console.log(isEditing);
+  console.log("hiiii", userData);
   return (
     <div className={styles.subContainer}>
       <div className={styles.topSide}>
@@ -17,11 +17,11 @@ const BankAccount = ({
 
           <div className={styles.fields}>
             <div className={styles.field}>
-              {isEditing.index == 3 && !userData.shaba_code ? (
+              {isEditing.index == 3 && !userData.payment["shaba_code"] ? (
                 <input
                   className={styles.input}
                   type="text"
-                  {...register("shaba_code")}
+                  {...register("payment.shaba_code")}
                   placeholder="شماره شبا"
                 />
               ) : (
@@ -29,17 +29,17 @@ const BankAccount = ({
                   <span className={styles.label}>شماره شبا</span>
 
                   <span className={styles.value}>
-                    {userData.shaba_code || "-"}
+                    {userData?.payment["shaba_code"] || "-"}
                   </span>
                 </div>
               )}
             </div>
             <div className={styles.field}>
-              {isEditing.index == 3 && !userData.debitCard_code ? (
+              {isEditing.index == 3 && !userData.payment["debitCard_code"] ? (
                 <input
                   className={styles.input}
                   type="text"
-                  {...register("debitCard_code")}
+                  {...register("payment.debitCard_code")}
                   placeholder="شماره کارت"
                 />
               ) : (
@@ -47,17 +47,17 @@ const BankAccount = ({
                   <span className={styles.label}>شماره کارت</span>
 
                   <span className={styles.value}>
-                    {userData.debitCard_code || "-"}
+                    {userData?.payment["debitCard_code"] || "-"}
                   </span>
                 </div>
               )}
             </div>
             <div className={styles.field}>
-              {isEditing.index == 3 && !userData.accountIdentifier ? (
+              {isEditing.index == 3 && !userData.payment.accountIdentifier ? (
                 <input
                   className={styles.input}
                   type="text"
-                  {...register("accountIdentifier")}
+                  {...register("payment.accountIdentifier")}
                   placeholder="شماره حساب"
                 />
               ) : (
@@ -65,7 +65,7 @@ const BankAccount = ({
                   <span className={styles.label}>شماره حساب</span>
 
                   <span className={styles.value}>
-                    {userData.accountIdentifier || "-"}
+                    {userData?.payment.accountIdentifier || "-"}
                   </span>
                 </div>
               )}

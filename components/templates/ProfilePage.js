@@ -1,34 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useUserContext } from "../../providers/UserContextProvider";
 import BankAccount from "../molecules/dashboardComponents/BankAccount";
 import PersonalInfo from "../molecules/dashboardComponents/PersonalInfo";
 import UserAccount from "../molecules/dashboardComponents/UserAccount";
 import styles from "../molecules/dashboardComponents/UserProfile.module.css";
 import { useForm } from "react-hook-form";
+import { useAddProfile } from "../../services/mutations";
+import { useGetUserData } from "../../services/queries";
 
 const ProfilePage = () => {
-  const data = useUserContext();
+  const { data } = useGetUserData();
   const [isEditing, setIsEditing] = useState({ index: 0 });
   const [userData, setUserData] = useState({
-    mobile: data.mobile || "",
-    email: data.email || "",
-    firstName: data.firstName || "",
-    lastName: data.lastName || "",
-    gender: data.gender || "",
-    birthDate: data.birthDate || "",
-    nationalCode: data.nationalCode || "",
+    mobile: data.data.mobile || "",
+    email: data.data.email || "",
+    firstName: data.data.firstName || "",
+    lastName: data.data.lastName || "",
+    gender: data.data.gender || "",
+    birthDate: data.data.birthDate || "",
+    nationalCode: data.data.nationalCode || "",
     payment: {
-      shaba_code: data.shaba_code || "",
-      debitCard_code: data.debitCard_code || "",
-      accountIdentifier: data.accountIdentifier || "",
+      shaba_code: data.data.shaba_code || "",
+      debitCard_code: data.data.debitCard_code || "",
+      accountIdentifier: data.data.accountIdentifier || "",
     },
   });
-  console.log(isEditing);
-  function onSubmit(data) {
-    console.log("first", data);
-    // setIsEditing(false);
+
+
+
+  const { mutate } = useAddProfile();
+  useEffect(() => {
+    mutate(userData, {
+      onError: (err) => console.log(err),
+    });
+  }, [userData]);
+
+  function onSubmit(formData) {
+    setUserData((data) => ({ ...data, ...formData }));
   }
 
   const { register, handleSubmit } = useForm();

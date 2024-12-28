@@ -19,8 +19,6 @@ const useCheckOtp = () => {
   return useMutation({ mutationFn });
 };
 
-
-
 const useCheckout = () => {
   const queryClient = useQueryClient();
 
@@ -48,5 +46,22 @@ const useAddToBasket = () => {
     },
   });
 };
+const useAddProfile = (formData) => {
+  const queryClient = useQueryClient();
+  const mutationFn = async (formData) => {
+    const response = await api.put("user/profile" , formData);
+    return response;
+  };
+  return useMutation({
+    mutationFn,
+    onSuccess: (response) => {
+      console.log("its me", response);
+      queryClient.invalidateQueries({ queryKey: ["user-data"] });
+    },
+    onError: (error) => {
+      console.error("Error in add tour to basket:", error);
+    },
+  });
+};
 
-export { useSendOtp, useCheckOtp, useCheckout, useAddToBasket };
+export { useSendOtp, useCheckOtp, useCheckout, useAddToBasket, useAddProfile };
