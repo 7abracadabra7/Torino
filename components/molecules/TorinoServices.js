@@ -5,7 +5,7 @@ const TorinoServices = () => {
   return (
     <div className={styles.top}>
       <div className={styles.footerElement}>
-        <Image src="/images/Group16.png" width={104} height={104} alt="image" />
+        <Image className={styles.img} src="/images/Group16.png" width={104} height={104} alt="image" />
         <div className={styles.elementText}>
           <h3 className={styles.footerTitle}>به صرفه ترین قیمت</h3>
           <p className={styles.footerText}>
@@ -14,7 +14,7 @@ const TorinoServices = () => {
         </div>
       </div>
       <div className={styles.footerElement}>
-        <Image src="/images/Group17.png" width={104} height={104} alt="image" />
+        <Image className={styles.img} src="/images/Group17.png" width={104} height={104} alt="image" />
         <div className={styles.elementText}>
           <h3 className={styles.footerTitle}>پشتیبانی</h3>
           <p className={styles.footerText}>
@@ -23,7 +23,7 @@ const TorinoServices = () => {
         </div>
       </div>
       <div className={styles.footerElement}>
-        <Image src="/images/Group18.png" width={104} height={104} alt="image" />
+        <Image className={styles.img} src="/images/Group18.png" width={104} height={104} alt="image" />
         <div className={styles.elementText}>
           <h3 className={styles.footerTitle}>رضایت کاربران</h3>
           <p className={styles.footerText}>

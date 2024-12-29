@@ -1,10 +1,3 @@
-/* .footerContainer {
-  padding: 31px 126px 0 126px;
-  border-top: 1px solid #00000033;
-  border-bottom: 1px solid #00000033;
-  margin-bottom: 12px;
-} */
-
 .top {
   padding: 30px 126px;
   border-top: 1px solid #00000033;
@@ -34,4 +27,27 @@
 .footerText {
   font-size: 16px;
   font-weight: 300;
+}
+
+@media (max-width: 786px) {
+  .top {
+    flex-direction: column;
+    margin-top: 30px;
+  }
+
+  .footerElement {
+    width: 312px;
+  }
+  .footerTitle {
+    font-size: 14px;
+  }
+
+  .footerText {
+    font-size: 12px;
+  }
+
+  .img {
+    width: 71px;
+    height: 64px;
+  }
 }
