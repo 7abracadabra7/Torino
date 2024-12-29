@@ -63,7 +63,6 @@
   color: white;
   font-size: 24px;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-
 }
 
 .prevButton,
@@ -85,4 +84,39 @@
 
 .nextButton {
   right: 10px;
+}
+
+@media (max-width: 786px) {
+  .sliderContainer {
+    width: 334px;
+    height: 284px;
+  }
+  .slide.active {
+    width: 255px;
+    height: 284px;
+  }
+
+  .slide:nth-child(2) {
+    width: 253px;
+    height: 247px;
+    transform: translate(-14px, 24px);
+  }
+
+  .slide:nth-child(3) {
+    width: 168px;
+    height: 198px;
+    transform: translate(-28px, 42px);
+  }
+
+  .slide:nth-child(4) {
+    width: 142px;
+    height: 162px;
+    transform: translate(-40px, 54px);
+  }
+  .prevButton{
+    left: 130px;
+  }
+.nextButton {
+right: -30px;
+}
 }
