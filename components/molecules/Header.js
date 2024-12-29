@@ -115,6 +115,7 @@ const Header = () => {
               onClick={() => setProfileModal(!profileModal)}
             >
               <Image
+              className={styles.profileIcon}
                 src="/images/profile.png"
                 width={24}
                 height={24}
@@ -122,6 +123,7 @@ const Header = () => {
               />
               <p>{phoneNumber}</p>
               <Image
+              className={styles.arrow}
                 src="/icons/arrow-down.png"
                 width={24}
                 height={24}
