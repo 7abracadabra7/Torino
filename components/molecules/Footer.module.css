@@ -4,37 +4,6 @@
   margin-bottom: 12px;
 }
 
-/*.top {
-  padding: 0 26px 32px 26px;
-  border-bottom: 1px solid #00000033;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footerElement {
-  display: flex;
-  flex-direction: row;
-  width: 320px;
-  gap: 10px;
-}
-
-.elementText {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.footerTitle {
-  font-size: 26px;
-  font-weight: 500;
-}
-
-.footerText {
-  font-size: 16px;
-  font-weight: 300;
-} */
-
 .bottom {
   padding-top: 31px;
   padding-bottom: 28px;
@@ -84,4 +53,57 @@
   text-align: center;
   height: 51px;
   max-height: 51px;
+}
+
+@media (max-width: 786px) {
+  .footerContainer {
+    width: 390px;
+    padding: 30px;
+  }
+  .bottom {
+    flex-direction: column;
+    width: 100%;
+    gap: 50px;
+  }
+  .leftInfo {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 330px;
+    justify-content: space-between;
+  }
+  .images {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 150px;
+    gap: 15px;
+    justify-content: space-evenly;
+  }
+  .img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .torino {
+    width: 100px;
+    height: 30px;
+  }
+
+  .phone {
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  .boldText {
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  .normalText {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .right {
+    width: 100%;
+  }
 }

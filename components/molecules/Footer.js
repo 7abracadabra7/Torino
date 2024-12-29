@@ -41,33 +41,40 @@ const Footer = () => {
           </div>
           <div className={styles.left}>
             <div className={styles.leftInfo}>
-              <Image
-                src="/images/Torino.png"
-                width={146}
-                height={44}
-                alt="logo"
-              />
-              <p className={styles.phone}>تلفن پشتیبانی:0218574</p>
+              <div>
+                <Image
+                className={styles.torino}
+                  src="/images/Torino.png"
+                  width={146}
+                  height={44}
+                  alt="logo"
+                />
+                <p className={styles.phone}>تلفن پشتیبانی:0218574</p>
+              </div>
               <div className={styles.images}>
                 <Image
+                  className={styles.img}
                   src="/images/airline.png"
                   width={78}
                   height={74}
                   alt="logo"
                 />
                 <Image
+                  className={styles.img}
                   src="/images/passenger-rights.png"
                   width={71}
                   height={74}
                   alt="logo"
                 />
                 <Image
+                  className={styles.img}
                   src="/images/ecunion.png"
                   width={66}
                   height={72}
                   alt="logo"
                 />
                 <Image
+                  className={styles.img}
                   src="/images/samandehi.png"
                   width={67}
                   height={74}
@@ -75,6 +82,7 @@ const Footer = () => {
                 />
 
                 <Image
+                  className={styles.img}
                   src="/images/aira.png"
                   width={68}
                   height={74}
