@@ -23,6 +23,7 @@ const CallPurchasing = () => {
       </div>
       <div className={styles.left}>
         <Image
+          className={styles.poshtibani}
           src="/images/poshtibani.png"
           width={160}
           height={60}

@@ -64,3 +64,61 @@
   color: var(--white-color);
   font-weight: 500;
 }
+
+@media (max-width: 786px) {
+  .container {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: visible;
+    border: none;
+  }
+
+  .right {
+    width: 100%;
+    font-size: 14px;
+    position: relative;
+    height: 128px;
+  }
+
+  .right h1 {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 10px;
+  }
+
+  .left {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 0 0 10px 10px;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 12px 28px;
+  }
+
+  .image {
+    width: 195px;
+    height: 158px;
+    position: absolute;
+    left: -3px;
+  }
+
+  .img {
+    width: 327px;
+  }
+  .button {
+    width: 136px;
+    height: 38px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .poshtibani {
+    width: 124px;
+    height: 38px;
+  }
+
+  .info {
+    margin: 10px 10px 83px auto;
+  }
+}
