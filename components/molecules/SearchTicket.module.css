@@ -12,28 +12,14 @@
 .dateContainer {
   position: relative;
   margin: 0px;
+  display: flex;
+  align-items: center;
 }
 .calendar {
   position: absolute;
   top: 420px;
   left: 130px;
-  /* width: 300px; */
-  /* background-color: white; */
-  /* border-radius: 8px; */
-  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
-  /* padding: 10px; */
-  /* z-index: 1000; */
 }
-
-/* .dateBtn {
-  width: 150px;
-  border: none;
-  background-color: inherit;
-  font-size: 16px;
-  color: var(--black-color);
-  text-align: right;
-
-} */
 
 .button {
   width: 180px;
@@ -46,19 +32,53 @@
   margin-left: 5px;
 }
 
-
-
-
-
 .input {
   width: 120px;
   font-size: 16px;
   outline: none;
   border: none;
   cursor: pointer;
-
 }
 
 .input::placeholder {
   color: black;
+}
+
+.inputContainer{
+  width: 200px;
+  border-left: 1px solid var(--border-color);
+}
+
+@media (max-width: 786px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 328px;
+    gap: 8px;
+    border: none;
+  }
+
+  .inputContainer{
+    padding: 5px;
+    width:160px ;
+    height:47px ;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+
+  }
+  .dateContainer{
+    position: relative;
+    padding: 5px;
+    width:328px ;
+    height:47px ;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+
+  }
+  .calendar {
+    position: absolute;
+    top: 80px;
+    left: 1054px;
+  }
 }

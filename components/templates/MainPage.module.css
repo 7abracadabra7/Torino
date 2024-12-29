@@ -18,3 +18,7 @@
 .torino span {
   color: var(--green-color);
 }
+
+@media(max-width:786px){
+
+}

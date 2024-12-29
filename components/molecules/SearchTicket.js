@@ -42,7 +42,10 @@ const SearchTicket = ({ destinationCities, originCities }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.container}>
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <div
+        className={styles.inputContainer}
+        style={{ display: "flex", alignItems: "center" }}
+      >
         <Image
           src="/icons/location.png"
           width={24}
@@ -60,8 +63,8 @@ const SearchTicket = ({ destinationCities, originCities }) => {
                   ...provided,
                   border: "none",
                   boxShadow: "none",
-                  width: "170px",
-                  height: "50px",
+                  width: "129px",
+                  height: "40px",
                   cursor: "pointer",
                 }),
                 placeholder: (provided) => ({
@@ -71,16 +74,26 @@ const SearchTicket = ({ destinationCities, originCities }) => {
               }}
               options={originCities}
               placeholder="مبدا"
-              components={{ DropdownIndicator: () => null }}
+              components={{
+                DropdownIndicator: () => null,
+                IndicatorSeparator: () => null,
+              }}
               onChange={(selectedOption) =>
                 field.onChange(selectedOption ? selectedOption.value : null)
+              }
+              value={
+                originCities.find((option) => option.value === field.value) ||
+                null
               }
             />
           )}
         />
       </div>
 
-      <div style={{ display: "flex", alignItems: "center" }}>
+      <div
+        className={styles.inputContainer}
+        style={{ display: "flex", alignItems: "center" }}
+      >
         <Image
           src="/icons/global-search.png"
           width={24}
@@ -98,8 +111,8 @@ const SearchTicket = ({ destinationCities, originCities }) => {
                   ...provided,
                   border: "none",
                   boxShadow: "none",
-                  width: "170px",
-                  height: "50px",
+                  width: "130px",
+                  height: "40px",
                   color: "black",
                   cursor: "pointer",
                 }),
@@ -110,18 +123,22 @@ const SearchTicket = ({ destinationCities, originCities }) => {
               }}
               options={destinationCities}
               placeholder="مقصد"
-              components={{ DropdownIndicator: () => null }}
+              components={{
+                DropdownIndicator: () => null,
+                IndicatorSeparator: () => null,
+              }}
               onChange={(selectedOption) =>
                 field.onChange(selectedOption ? selectedOption.value : null)
+              }
+              value={
+                destinationCities.find((option) => option.value === field.value) ||
+                null
               }
             />
           )}
         />
       </div>
-      <div
-        className={styles.dateContainer}
-        style={{ display: "flex", alignItems: "center" }}
-      >
+      <div className={styles.dateContainer}>
         <Image
           src="/icons/cal.png"
           width={24}
@@ -152,7 +169,6 @@ const SearchTicket = ({ destinationCities, originCities }) => {
           )}
         />
       </div>
-      {/* <input type="submit" /> */}
       <button type="submit" className={styles.button}>
         جستجو
       </button>
