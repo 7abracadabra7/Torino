@@ -21,34 +21,94 @@ const Header = () => {
     handleLogout();
     setProfileModal(false);
   };
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(1);
 
+
+  const handleLinkClick = (index) => {
+    setActiveIndex(index);
+  };
   return (
     <div className={styles.headerContainer}>
-      <Image src="/images/Torino.png" width={146} height={44} alt="logo" />
+      <Image
+        className={styles.logo}
+        src="/images/Torino.png"
+        width={146}
+        height={44}
+        alt="logo"
+      />
       <div className={styles.headerElements}>
-        <ul className={styles.headerLinks}>
-          <Link href="/">صفحه اصلی</Link>
-          <Link href="/"> خدمات گردشگری</Link>
-          <Link href="/about-us">درباره ما </Link>
-          <Link href="/contact-us">تماس با ما </Link>
+        <Image
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className={styles.hamburger}
+          src="/icons/hamburger.png"
+          width={30}
+          height={30}
+          alt="menu"
+        />
+
+        <ul
+          onClick={() => setIsMenuOpen(false)}
+          className={`${styles.headerLinks} ${isMenuOpen ? styles.show : ""}`}
+        >
+          
+          <Link
+            onClick={() => handleLinkClick(1)}
+            className={activeIndex === 1 ? styles.active : ""}
+            href="/"
+          >
+            صفحه اصلی
+          </Link>
+          <Link
+            onClick={() => handleLinkClick(2)}
+            className={activeIndex === 2 ? styles.active : ""}
+            href="/"
+          >
+          
+            خدمات گردشگری
+          </Link>
+          <Link
+            onClick={() => handleLinkClick(3)}
+            className={activeIndex === 3 ? styles.active : ""}
+            href="/about-us"
+          >
+            درباره ما{" "}
+          </Link>
+          <Link
+            onClick={() => handleLinkClick(4)}
+            className={activeIndex === 4 ? styles.active : ""}
+            href="/contact-us"
+          >
+            تماس با ما{" "}
+          </Link>
         </ul>
         <div className={styles.leftSide}>
           <Link href="/checkout" className={styles.cartIcon}>
             <Image src="/icons/cart.png" width={35} height={35} alt="Cart" />
           </Link>
           {!user ? (
-            <button
-              className={styles.registerBtn}
-              onClick={() => setIsOpen(true)}
-            >
+            <>
+              <button
+                className={styles.registerBtn}
+                onClick={() => setIsOpen(true)}
+              >
+                <Image
+                  src="/images/profile.png"
+                  width={24}
+                  height={24}
+                  alt="profile image"
+                />
+                <p>ورود | ثبت نام</p>
+              </button>
               <Image
-                src="/images/profile.png"
-                width={24}
-                height={24}
-                alt="profile image"
+                onClick={() => setIsOpen(true)}
+                className={styles.signinBtn}
+                src="/icons/signinBtn.png"
+                width={40}
+                height={40}
+                alt="button"
               />
-              <p>ورود | ثبت نام</p>
-            </button>
+            </>
           ) : (
             <button
               className={styles.phoneNumber}

@@ -12,6 +12,7 @@ const ContextProvider = ({ children }) => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState(null);
+  
   const handleLogin = (userData) => {
     setUser(userData);
     localStorage.setItem("user", JSON.stringify(userData));

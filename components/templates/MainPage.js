@@ -5,8 +5,8 @@ import SearchTicket from "../molecules/SearchTicket";
 import CallPurchasing from "../molecules/CallPurchasing";
 import WhyTorino from "../molecules/WhyTorino";
 import TorinoServices from "../molecules/TorinoServices";
-import AuthForm from "../organisms/AuthForm";
 import { translateCityName } from "../../utils/translateCityName";
+import { useModalContext } from "../../providers/contextProvider";
 
 const MainPage = async ({ tours }) => {
 
