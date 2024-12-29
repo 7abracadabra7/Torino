@@ -19,11 +19,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 
 .content {
-  position:relative;
+  position: relative;
   min-width: 10px;
   min-height: 10px;
 }
@@ -35,6 +34,18 @@
   width: 30px;
   height: 30px;
   font-size: larger;
-  background-color:inherit;
+  background-color: inherit;
   border: none;
+}
+
+@media (max-width: 786px) {
+  .container {
+    width: 358px;
+    height: 362px;
+  }
+  .close-button {
+    width: 24px;
+    height: 24px;
+    font-size: large;
+  }
 }

@@ -41,7 +41,7 @@ const MainPage = async ({ tours }) => {
     .filter((city) => city !== null);
 
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div className={styles.totalPage}>
       <Image
         className={styles.image}
         src="/images/cover.png"

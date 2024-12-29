@@ -4,6 +4,8 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
+  align-items: center;
+
 }
 
 .title {
@@ -15,5 +17,9 @@
   .container {
     display: flex;
     flex-direction: column;
+  }
+  .title{
+    font-size: 20px;
+    margin-top: 48px;
   }
 }

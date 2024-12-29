@@ -39,10 +39,10 @@
   color: var(--green-color);
 }
 
-.subTile{
-    font-size: 24px;
-    font-weight: 600;
-    margin-bottom: 16px;
+.subTile {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 16px;
 }
 
 .text {
@@ -52,28 +52,26 @@
   line-height: 44px;
 }
 
-
-@media (max-width:786px){
-
+@media (max-width: 786px) {
   .container {
-
     width: 334px;
-flex-direction: column;
-align-items: flex-start;  }
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .questionMark {
     width: 34px;
     height: 34px;
   }
-  .questionMark span{
+  .questionMark span {
     font-size: 24px;
     font-synthesis-weight: 900;
-    transform:translateY(3px);
+    transform: translateY(3px);
   }
   .title h2 {
     font-size: 24px;
-
   }
-  .text , .subTitle{
+  .text,
+  .subTitle {
     display: none;
   }
 }

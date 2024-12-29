@@ -1,5 +1,4 @@
 .footerContainer {
-  /* padding: 31px 126px 0 126px; */
   border-bottom: 1px solid #00000033;
   margin-bottom: 12px;
 }
@@ -57,14 +56,18 @@
 
 @media (max-width: 786px) {
   .footerContainer {
-    width: 390px;
+    width: 100vw;
     padding: 30px;
+    text-align: center;
   }
   .bottom {
     flex-direction: column;
     width: 100%;
     gap: 50px;
+    margin: 0px;
+    align-items: center;
   }
+
   .leftInfo {
     display: flex;
     flex-direction: row-reverse;
@@ -105,5 +108,9 @@
   }
   .right {
     width: 100%;
+  }
+  .copyRight {
+    font-size: 12px;
+    font-weight: 300;
   }
 }

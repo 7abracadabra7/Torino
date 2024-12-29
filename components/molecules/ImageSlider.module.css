@@ -90,6 +90,7 @@
   .sliderContainer {
     width: 334px;
     height: 284px;
+    transform: translateX(-58px);
   }
   .slide.active {
     width: 255px;
