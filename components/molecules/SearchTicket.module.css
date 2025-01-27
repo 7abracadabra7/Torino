@@ -44,7 +44,7 @@
   color: black;
 }
 
-.inputContainer{
+.inputContainer {
   width: 200px;
   border-left: 1px solid var(--border-color);
 }
@@ -59,26 +59,24 @@
     border: none;
   }
 
-  .inputContainer{
+  .inputContainer {
     padding: 5px;
-    width:160px ;
-    height:47px ;
+    width: 160px;
+    height: 47px;
     border: 1px solid var(--border-color);
     border-radius: 12px;
-
   }
-  .dateContainer{
+  .dateContainer {
     position: relative;
     padding: 5px;
-    width:328px ;
-    height:47px ;
+    width: 328px;
+    height: 47px;
     border: 1px solid var(--border-color);
     border-radius: 12px;
-
   }
   .calendar {
     position: absolute;
-    top: 80px;
+    top: 0px;
     left: 1054px;
   }
 }

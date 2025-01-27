@@ -1,14 +1,14 @@
 import styles from "./Card.module.css";
-import dateConverter from "../../utils/dateConvertor";
+import dateConverter, { tourDays } from "../../utils/dateConvertor";
 import { formatNumberWithCommas } from "../../utils/engToPersianNumber";
 import Link from "next/link";
 
 function Card(props) {
-  const { id,title, startDate, endDate, price, image, options } = props;
+  const { id, title, startDate, endDate, price, image, options } = props;
   const shamsiDate = dateConverter(startDate, endDate);
   const day = shamsiDate[2];
   const month = shamsiDate[1];
-  const difference = shamsiDate[3];
+  const difference = tourDays(endDate, startDate);
   console.log(shamsiDate, day, difference);
   const aboutTour = `${month} ماه - ${difference}روزه - پرواز - ${options[1]} `;
   const fPrice = formatNumberWithCommas(price);
@@ -23,7 +23,9 @@ function Card(props) {
           <div>{`${aboutTour.slice(0, 35)} ...`}</div>
         </div>
         <div className={styles.reserveBox}>
-          <Link className={styles.reserveBtn} href={`/${id}`}>رزرو</Link>
+          <Link className={styles.reserveBtn} href={`/${id}`}>
+            رزرو
+          </Link>
           <p className={styles.price}>{`${finalPrice} تومان`}</p>
         </div>
       </div>

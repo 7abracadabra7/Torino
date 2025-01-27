@@ -1,9 +1,12 @@
-import React from 'react'
+"use client";
+import React from "react";
+import { useGetUserTours } from "../../../../services/queries";
+import MyTours from "../../../../components/molecules/dashboardComponents/MyTours";
 
 const page = () => {
-  return (
-    <div>page</div>
-  )
-}
+  const { data } = useGetUserTours();
+  console.log("response", data?.data);
+  return <MyTours tours={data?.data} />;
+};
 
-export default page
+export default page;
