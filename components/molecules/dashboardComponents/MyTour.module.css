@@ -4,10 +4,11 @@
   border-radius: 10px;
   font-size: 14px;
   width: 830px;
+  margin-bottom: 10px;
 }
-.upSide{
-    padding: 1rem;
-    border-bottom: 1px solid var(--border-color);
+.upSide {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .top,
@@ -18,13 +19,13 @@
   font-size: 14px;
 }
 
-.middle{
-    justify-content: flex-start;
-    gap: 42px;
+.middle {
+  justify-content: flex-start;
+  gap: 42px;
 }
 
-.flex{
-    gap: 7px;
+.flex {
+  gap: 7px;
 }
 
 .top {
@@ -58,7 +59,7 @@
 }
 
 .bottom {
-    padding: 1rem;
-    display: flex;
-    justify-content: flex-start;
+  padding: 1rem;
+  display: flex;
+  justify-content: flex-start;
 }

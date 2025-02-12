@@ -1,9 +1,7 @@
-// "use client";
-// import { useRouter } from "next/navigation";
 import { notFound } from "next/navigation";
 import TourDetails from "../../../components/templates/TourDetails";
 import { serverFetch } from "../../../services/http";
-// import { useFetchTour } from "../../../services/queries";
+
 
 export default async function TourPage({ params }) {
   const { tourId } = params;
