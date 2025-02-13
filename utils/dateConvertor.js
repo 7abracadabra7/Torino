@@ -1,4 +1,3 @@
-import { convertToPersianNumber } from "./engToPersianNumber";
 
 const dateConverter = (dateStr) => {
   const monthArray = [
@@ -29,11 +28,6 @@ const dateConverter = (dateStr) => {
 
   return shamsiDate;
 
-  // const day = convertToPersianNumber(tourDate.getDate());
-  // const month = convertToPersianNumber(monthArray[tourDate.getMonth()]);
-  // const year = convertToPersianNumber(tourDate.getFullYear());
-  // const shamsiDate = [year, month, day];
-  // return shamsiDate;
 };
 
 export const tourDays = (endDate, startDate) => {

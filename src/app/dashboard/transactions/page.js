@@ -1,9 +1,11 @@
-import React from 'react'
+"use client";
+import { useGetTransactions } from "../../../../services/queries";
+import Transactions from "../../../../components/molecules/dashboardComponents/Transactions";
 
 const page = () => {
-  return (
-    <div>page</div>
-  )
-}
+  const { data } = useGetTransactions();
 
-export default page
+  return <Transactions transactions={data} />;
+};
+
+export default page;
