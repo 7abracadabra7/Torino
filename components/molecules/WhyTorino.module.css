@@ -3,6 +3,8 @@
   width: 1182px;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
+  margin-bottom: 50px;
 }
 .right {
   width: 50%;
@@ -50,6 +52,10 @@
   font-size: 20px;
   text-align: justify;
   line-height: 44px;
+}
+
+.left {
+  width: 500px;
 }
 
 @media (max-width: 786px) {
